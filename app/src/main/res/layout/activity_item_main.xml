@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/dip6">
+        <!--图片-->
+        <ImageView
+            android:id="@+id/main_item_object_photo"
+            android:layout_width="@dimen/dip60"
+            android:layout_height="@dimen/dip60"
+            android:background="@drawable/search_bg_black"
+            android:padding="@dimen/dip5"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon_bg" />
+        <!--信息-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dip6"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dip30"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dip25"
+                    android:layout_height="@dimen/dip25"
+                    android:padding="@dimen/dip5"
+                    android:src="@drawable/object_name_01" />
+
+                <TextView
+                    android:id="@+id/main_item_object_name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:paddingBottom="@dimen/dip5"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="@dimen/dip5"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:layout_width="@dimen/dip25"
+                    android:layout_height="@dimen/dip25"
+                    android:padding="@dimen/dip5"
+                    android:src="@drawable/type" />
+
+                <TextView
+                    android:id="@+id/main_item_object_type"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:paddingBottom="@dimen/dip5"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dip30"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dip25"
+                    android:layout_height="@dimen/dip25"
+                    android:padding="@dimen/dip5"
+                    android:src="@drawable/time_01" />
+
+                <TextView
+                    android:id="@+id/main_item_object_time"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:paddingBottom="@dimen/dip4"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="@dimen/dip5"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:layout_width="@dimen/dip25"
+                    android:layout_height="@dimen/dip25"
+                    android:padding="@dimen/dip5"
+                    android:src="@drawable/object_count" />
+
+                <TextView
+                    android:id="@+id/main_item_object_count"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:paddingBottom="@dimen/dip5"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:background="@color/black" />
+
+</LinearLayout>

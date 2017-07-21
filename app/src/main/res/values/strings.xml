@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">ObjectManager</string>
+    <string name="company_copyright_des">Copyright©  2015-2035  YJLove.All Rights Reserved.</string>
+
+    <!-- 权限检测 -->
+    <string name="permission_get_accounts_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_GET_ACCOUNTS</string>
+    <string name="permission_read_phone_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_PHONE_STATE</string>
+    <string name="permission_call_phone_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_CALL_PHONE</string>
+    <string name="permission_camera_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_CAMERA</string>
+    <string name="permission_access_fine_location_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_ACCESS_FINE_LOCATION</string>
+    <string name="permission_access_coarse_location_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_ACCESS_COARSE_LOCATION</string>
+    <string name="permission_read_external_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_READ_EXTERNAL_STORAGE</string>
+    <string name="permission_white_external_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_WRITE_EXTERNAL_STORAGE</string>
+    <string name="permission_recode_audio_hint">没有此权限，无法开启这个功能，请开启权限。PERMISSION_RECORD_AUDIO</string>
+
+    <!-- 登录界面 -->
+    <string name="login_login">登 录</string>
+    <string name="login_user">账号</string>
+    <string name="login_password">密码</string>
+    <string name="login_user_hint">请输入账号</string>
+    <string name="login_password_hint">请输入密码</string>
+    <string name="login_remember_password">记住密码</string>
+
+    <!-- 主界面 -->
+    <string name="main_title">物品中心</string>
+    <string name="main_input_date">入库时间：</string>
+    <string name="main_to">至</string>
+    <string name="main_output_date">出库时间：</string>
+    <string name="main_object_type">物品类型：</string>
+    <string name="main_all">全部</string>
+    <string name="main_object_search_send">查询</string>
+    <string name="main_no_data">尚无相关数据</string>
+
+    <!-- 添加物品界面 -->
+    <string name="object_title">添加物品</string>
+    <string name="object_object_name">物品名称:</string>
+    <string name="object_object_name_hint">请输物品名称</string>
+    <string name="object_object_type">物品类型:</string>
+    <string name="object_object_type_hint">请输物品类型</string>
+    <string name="object_object_create_time">入库时间:</string>
+    <string name="object_object_create_time_hint">点击选择入库时间</string>
+    <string name="object_object_note">备注:</string>
+    <string name="object_object_note_hint">为物品留下备注，使信息更加详细！</string>
+    <string name="object_object_ok">添 加</string>
+
+    <!-- 统计中心界面 -->
+    <string name="count_title">统计中心</string>
+
+    <!-- 弹出框 -->
+    <string name="popwindow_common_cancel">取消</string>
+    <string name="popwindow_common_ok">确定</string>
+
+</resources>

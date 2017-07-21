@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!-- 标题区域 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dip40"
+        android:background="@color/black">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_title"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:id="@+id/main_add_object"
+            android:layout_width="@dimen/dip40"
+            android:layout_height="@dimen/dip40"
+            android:src="@drawable/add_withe"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/dip5"
+            android:layout_marginRight="@dimen/dip4"/>
+    </RelativeLayout>
+
+    <!-- 条件选择区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 选择入库时间 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dip40"
+            android:background="@color/white"
+            android:gravity="center|left"
+            android:paddingLeft="@dimen/dip10"
+            android:paddingRight="@dimen/dip10"
+            android:paddingTop="@dimen/dip5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="@string/main_input_date"
+                android:textColor="@color/text_color"
+                android:textSize="11sp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dip22"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/dip5"
+                android:layout_weight="1"
+                android:background="@drawable/search_bg_darkgray"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="@dimen/dip15"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dip4"
+                    android:layout_marginRight="@dimen/dip1"
+                    android:src="@drawable/calandar_ico_g" />
+
+                <TextView
+                    android:id="@+id/main_input_start_date"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dip22"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:gravity="center"
+                    android:hint=""
+                    android:inputType="date"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/activity_guide_bottom_gray"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="@string/main_to"
+                android:textColor="@color/text_color"
+                android:textSize="11sp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dip22"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dip5"
+                android:layout_marginRight="@dimen/dip5"
+                android:layout_weight="1"
+                android:background="@drawable/search_bg_darkgray"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="@dimen/dip15"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dip4"
+                    android:layout_marginRight="@dimen/dip1"
+                    android:src="@drawable/calandar_ico_g" />
+
+                <TextView
+                    android:id="@+id/main_input_end_date"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dip22"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:gravity="center"
+                    android:hint=""
+                    android:inputType="date"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/activity_guide_bottom_gray"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 选择出库时间 -->
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/white"-->
+            <!--android:gravity="center|left"-->
+            <!--android:paddingLeft="@dimen/dip10"-->
+            <!--android:paddingRight="@dimen/dip10"-->
+            <!--android:paddingTop="@dimen/dip5">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:gravity="center"-->
+                <!--android:text="@string/main_output_date"-->
+                <!--android:textColor="@color/text_color"-->
+                <!--android:textSize="11sp" />-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="@dimen/dip22"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginRight="@dimen/dip5"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="@drawable/search_bg_darkgray"-->
+                <!--android:clickable="true">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="@dimen/dip15"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="@dimen/dip4"-->
+                    <!--android:layout_marginRight="@dimen/dip1"-->
+                    <!--android:src="@drawable/calandar_ico_g" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/main_output_start_date"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="@dimen/dip22"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/bg_edittext"-->
+                    <!--android:gravity="center"-->
+                    <!--android:hint=""-->
+                    <!--android:inputType="date"-->
+                    <!--android:maxLength="20"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textColorHint="@color/activity_guide_bottom_gray"-->
+                    <!--android:textSize="11sp" />-->
+            <!--</LinearLayout>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="fill_parent"-->
+                <!--android:gravity="center"-->
+                <!--android:text="@string/main_to"-->
+                <!--android:textColor="@color/text_color"-->
+                <!--android:textSize="11sp" />-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="@dimen/dip22"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginLeft="@dimen/dip5"-->
+                <!--android:layout_marginRight="@dimen/dip5"-->
+                <!--android:layout_weight="1"-->
+                <!--android:background="@drawable/search_bg_darkgray"-->
+                <!--android:clickable="true">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="@dimen/dip15"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="@dimen/dip4"-->
+                    <!--android:layout_marginRight="@dimen/dip1"-->
+                    <!--android:src="@drawable/calandar_ico_g" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/main_output_end_date"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="@dimen/dip22"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@drawable/bg_edittext"-->
+                    <!--android:gravity="center"-->
+                    <!--android:hint=""-->
+                    <!--android:inputType="date"-->
+                    <!--android:maxLength="20"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textColorHint="@color/activity_guide_bottom_gray"-->
+                    <!--android:textSize="11sp" />-->
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+
+        <!-- 选择物品类型 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dip40"
+            android:background="@color/white"
+            android:baselineAligned="false"
+            android:paddingBottom="@dimen/dip5"
+            android:paddingLeft="@dimen/dip10"
+            android:paddingRight="@dimen/dip10"
+            android:paddingTop="@dimen/dip5">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="@string/main_object_type"
+                    android:textColor="@color/text_color"
+                    android:textSize="11sp" />
+
+                <LinearLayout
+                    android:id="@+id/main_object_type_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dip22"
+                    android:layout_gravity="center|right"
+                    android:layout_marginRight="@dimen/dip5"
+                    android:background="@drawable/search_bg_darkgray"
+                    android:clickable="true">
+
+                    <TextView
+                        android:id="@+id/main_object_type"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dip22"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_edittext"
+                        android:gravity="left|center"
+                        android:maxLength="20"
+                        android:paddingLeft="@dimen/dip5"
+                        android:singleLine="true"
+                        android:tag="all"
+                        android:text="@string/main_all"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/activity_guide_bottom_gray"
+                        android:textSize="11sp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dip15"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dip4"
+                        android:layout_marginRight="@dimen/dip2"
+                        android:src="@drawable/spinner_list_down" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_object_search_send"
+                android:layout_width="@dimen/dip60"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dip5"
+                android:gravity="center"
+                android:padding="3dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dip22"
+                    android:background="@drawable/button_square_bg"
+                    android:gravity="center"
+                    android:text="@string/main_object_search_send"
+                    android:textColor="@color/white"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:background="@color/black" />
+
+    <!-- 展示列表 -->
+    <LinearLayout
+        android:id="@+id/main_data_list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <com.example.yjlove.objectmanager.widget.swipe.SwipeMenuListView
+            android:id="@+id/main_data_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <!--无数据展示-->
+    <LinearLayout
+        android:id="@+id/main_no_data_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="@dimen/dip50"
+            android:layout_height="@dimen/dip50"
+            android:src="@drawable/icon_bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dip3"
+            android:text="@string/main_no_data" />
+    </LinearLayout>
+</LinearLayout>
