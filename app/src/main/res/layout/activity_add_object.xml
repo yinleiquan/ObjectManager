@@ -23,7 +23,7 @@
             android:id="@+id/object_back"
             android:layout_width="@dimen/dip40"
             android:layout_height="@dimen/dip40"
-            android:src="@drawable/last_page_withe"
+            android:src="@drawable/last_page_white"
             android:padding="@dimen/dip5"/>
     </RelativeLayout>
 

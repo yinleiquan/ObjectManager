@@ -31,7 +31,7 @@
                 android:layout_height="@dimen/dip100"
                 android:background="@drawable/activity_login_default_user_bg"
                 android:padding="@dimen/dip5"
-                android:src="@drawable/passager_empty_img" />
+                android:src="@drawable/user_img" />
         </LinearLayout>
 
         <LinearLayout

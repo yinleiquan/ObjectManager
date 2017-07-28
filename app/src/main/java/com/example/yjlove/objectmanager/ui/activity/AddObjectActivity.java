@@ -1,8 +1,12 @@
 package com.example.yjlove.objectmanager.ui.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
+import android.transition.Slide;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,8 +16,8 @@ import android.widget.TextView;
 
 import com.example.yjlove.objectmanager.R;
 import com.example.yjlove.objectmanager.application.AppContext;
-import com.example.yjlove.objectmanager.base.BaseActivity;
 import com.example.yjlove.objectmanager.bean.entity.MyObject;
+import com.example.yjlove.objectmanager.constant.StrConstant;
 import com.example.yjlove.objectmanager.greendao.gen.MyObjectDao;
 import com.example.yjlove.objectmanager.popupwindow.CalendarPopupWindow;
 import com.example.yjlove.objectmanager.popupwindow.SelectListPopupWindow;
@@ -33,12 +37,18 @@ import butterknife.ButterKnife;
  * 作者： YJLove
  * 制作日期：2017/7/21.
  */
-public class AddObjectActivity extends BaseActivity {
+public class AddObjectActivity extends AppCompatActivity {
 
+    @BindView(R.id.object_back)
+    ImageView objectBack;
     @BindView(R.id.object_object_photo)
     ImageView objectObjectPhoto;
     @BindView(R.id.object_object_name)
     EditText objectObjectName;
+    @BindView(R.id.object_object_type)
+    TextView objectObjectType;
+    @BindView(R.id.object_object_type_layout)
+    LinearLayout objectObjectTypeLayout;
     @BindView(R.id.object_object_count_add)
     ImageView objectObjectCountAdd;
     @BindView(R.id.object_object_count)
@@ -51,15 +61,9 @@ public class AddObjectActivity extends BaseActivity {
     EditText objectObjectNote;
     @BindView(R.id.object_object_ok_button)
     Button objectObjectOkButton;
-    @BindView(R.id.object_object_type)
-    TextView objectObjectType;
-    @BindView(R.id.object_object_type_layout)
-    LinearLayout objectObjectTypeLayout;
-    @BindView(R.id.object_back)
-    ImageView objectBack;
 
     private Date today = new Date(); // 今天
-    private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat df = new SimpleDateFormat(StrConstant.DATA_FORMAT);
     private MyObjectDao mMyObjectDao;// 取出物品表
     private LoadingDialog mLoadingDialog;
     private int mCount = 1;
@@ -71,10 +75,10 @@ public class AddObjectActivity extends BaseActivity {
             switch (msg.what) {
                 case 1:
                     mCount = 1;
-                    objectObjectName.setText("");
-                    objectObjectType.setText("");
+                    objectObjectName.setText(StrConstant.EMPTY);
+                    objectObjectType.setText(StrConstant.EMPTY);
                     objectObjectTime.setText(df.format(today));
-                    objectObjectNote.setText("");
+                    objectObjectNote.setText(StrConstant.EMPTY);
                     objectObjectCount.setText(String.valueOf(mCount));
                     ToastUtil.showShort(AppContext.getInstance(), "物品入库成功");
                     mLoadingDialog.close();
@@ -84,11 +88,18 @@ public class AddObjectActivity extends BaseActivity {
     };
 
     @Override
-    protected int getViewLayoutId() {
-        return R.layout.activity_add_object;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setEnterTransition(new Slide().setDuration(300));
+            getWindow().setExitTransition(new Slide().setDuration(300));
+        }
+
+        setContentView(R.layout.activity_add_object);
+        ButterKnife.bind(this);
+        init();
     }
 
-    @Override
     protected void init() {
         mLoadingDialog = new LoadingDialog(AddObjectActivity.this);
         mMyObjectDao = AppContext.getInstance().getDaoSession().getMyObjectDao();
@@ -161,7 +172,8 @@ public class AddObjectActivity extends BaseActivity {
                     }
                     break;
                 case R.id.object_back:
-                    finish();
+                    AddObjectActivity.this.finish();
+                    overridePendingTransition(R.anim.close_enter, R.anim.close_exit);
                     break;
             }
         }
@@ -182,9 +194,14 @@ public class AddObjectActivity extends BaseActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_DOWN) {
+            finish();
+            overridePendingTransition(R.anim.close_enter, R.anim.close_exit);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
+
 }

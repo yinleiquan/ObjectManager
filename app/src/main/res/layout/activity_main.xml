@@ -1,32 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main_activity">
+    android:id="@+id/activity_main_drawer">
 
-    <LinearLayout
-        android:id="@+id/activity_main_bottom_bar"
+    <RelativeLayout
+        android:id="@+id/main_activity"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dip50"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:baselineAligned="false"
-        android:gravity="center"
-        android:orientation="horizontal" />
-    <View
-        android:id="@+id/activity_main_bottom_bar_spline"
-        android:layout_width="match_parent"
-        android:layout_height="0.5sp"
-        android:layout_above="@id/activity_main_bottom_bar"
-        android:orientation="vertical"
-        android:background="@color/black"/>
+        android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/activity_main_container"
+        <LinearLayout
+            android:id="@+id/activity_main_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dip50"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:orientation="horizontal" />
+
+        <View
+            android:id="@+id/activity_main_bottom_bar_spline"
+            android:layout_width="match_parent"
+            android:layout_height="0.5sp"
+            android:layout_above="@id/activity_main_bottom_bar"
+            android:background="@color/black"
+            android:orientation="vertical" />
+
+        <FrameLayout
+            android:id="@+id/activity_main_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/activity_main_bottom_bar_spline"
+            android:background="@color/white"/>
+
+        <ImageView
+            android:id="@+id/activity_main_show_me"
+            android:layout_width="@dimen/dip40"
+            android:layout_height="@dimen/dip40"
+            android:layout_marginLeft="@dimen/dip6"
+            android:padding="@dimen/dip7"
+            android:src="@drawable/user_icon_white" />
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/activity_main_navigation"
+        android:layout_marginTop="@dimen/dip40"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_above="@id/activity_main_bottom_bar_spline"
-        android:background="@color/white">
-    </FrameLayout>
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_header"
+        app:menu="@menu/navigation_menu" />
 
-</RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

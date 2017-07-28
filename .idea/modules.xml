@@ -4,9 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ObjectManager.iml" filepath="$PROJECT_DIR$/ObjectManager.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/PushSDK/PushSDK.iml" filepath="$PROJECT_DIR$/library/PushSDK/PushSDK.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/ViewPagerIndicator/ViewPagerIndicator.iml" filepath="$PROJECT_DIR$/library/ViewPagerIndicator/ViewPagerIndicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/ViewPagerIndicator/viewPagerIndicator.iml" filepath="$PROJECT_DIR$/library/ViewPagerIndicator/viewPagerIndicator.iml" />
     </modules>
   </component>
 </project>

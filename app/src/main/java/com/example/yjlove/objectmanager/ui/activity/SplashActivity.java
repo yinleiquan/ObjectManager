@@ -134,7 +134,8 @@ public class SplashActivity extends AppCompatActivity {
 //    }
 
     private void enterLoginActivity() {
-        mIntent = new Intent(mContext, LoginActivity.class);
+//        mIntent = new Intent(mContext, LoginActivity.class);
+        mIntent = new Intent(mContext, MainActivity.class);
         startActivity(mIntent);
         finish();
     }

@@ -46,8 +46,13 @@
     <!-- 统计中心界面 -->
     <string name="count_title">统计中心</string>
 
+    <!-- 个人中心界面 -->
+    <string name="me_title">我</string>
+    <string name="me_user_id">用户名：</string>
+
     <!-- 弹出框 -->
     <string name="popwindow_common_cancel">取消</string>
     <string name="popwindow_common_ok">确定</string>
+
 
 </resources>

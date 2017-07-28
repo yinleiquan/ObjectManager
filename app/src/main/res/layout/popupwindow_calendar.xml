@@ -11,7 +11,7 @@
         android:layout_centerInParent="true"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/design_background_withe"
+        android:background="@drawable/design_background_white"
         android:orientation="vertical">
 
         <LinearLayout

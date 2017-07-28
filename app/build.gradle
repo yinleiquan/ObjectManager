@@ -48,4 +48,5 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
     compile project(':library:PushSDK')
     compile project(':library:ViewPagerIndicator')
+    compile 'com.android.support:design:23.+'
 }

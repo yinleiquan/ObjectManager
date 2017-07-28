@@ -13,7 +13,7 @@
         android:layout_marginLeft="@dimen/dip50"
         android:layout_marginRight="@dimen/dip50"
         android:layout_marginTop="@dimen/dip150"
-        android:background="@drawable/design_background_withe"
+        android:background="@drawable/design_background_white"
         android:orientation="vertical">
 
         <LinearLayout

@@ -58,4 +58,16 @@
         <item name="android:textColor">@drawable/indicator_text_color</item>
     </style>
 
+    <!--&lt;!&ndash; 添加物品页面主题 &ndash;&gt;-->
+    <!--<style name="AddObjectTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--<item name="android:windowAnimationStyle">@style/AnimationActivity</item>-->
+    <!--</style>-->
+    <!--&lt;!&ndash; 添加物品界面动画 &ndash;&gt;-->
+    <!--<style name="AnimationActivity" parent="@android:style/Animation.Activity">-->
+        <!--<item name="android:activityOpenEnterAnimation">@anim/open_enter</item>-->
+        <!--<item name="android:activityOpenExitAnimation">@anim/open_exit</item>-->
+        <!--<item name="android:activityCloseEnterAnimation">@anim/close_enter</item>-->
+        <!--<item name="android:activityCloseExitAnimation">@anim/close_exit</item>-->
+    <!--</style>-->
+
 </resources>

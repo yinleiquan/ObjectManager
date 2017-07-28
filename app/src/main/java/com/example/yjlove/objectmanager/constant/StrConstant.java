@@ -6,4 +6,7 @@ package com.example.yjlove.objectmanager.constant;
 public interface StrConstant {
     String USER_NAME = "yjlove";
     String PASSWORD = "123456";
+
+    String DATA_FORMAT = "yyyy-MM-dd";
+    String EMPTY = "";
 }

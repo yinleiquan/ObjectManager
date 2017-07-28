@@ -1,8 +1,10 @@
 package com.example.yjlove.objectmanager.ui.fragment;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.LayoutInflater;
@@ -54,10 +56,6 @@ public class MainFragment extends AbsBaseFragment {
     TextView mainInputStartDate;
     @BindView(R.id.main_input_end_date)
     TextView mainInputEndDate;
-    //    @BindView(R.id.main_output_start_date)
-//    TextView mainOutputStartDate;
-//    @BindView(R.id.main_output_end_date)
-//    TextView mainOutputEndDate;
     @BindView(R.id.main_object_type)
     TextView mainObjectType;
     @BindView(R.id.main_object_type_layout)
@@ -70,9 +68,9 @@ public class MainFragment extends AbsBaseFragment {
     LinearLayout mainDataListLayout;
     @BindView(R.id.main_no_data_layout)
     LinearLayout mainNoDataLayout;
-    Unbinder unbinder;
     @BindView(R.id.main_add_object)
     ImageView mainAddObject;
+    Unbinder unbinder;
 
     private Date today = new Date(); // 今天
     private MyObjectDao mMyObjectDao;// 取出物品表
@@ -120,14 +118,10 @@ public class MainFragment extends AbsBaseFragment {
 
         mainInputStartDate.setText("ago");
         mainInputEndDate.setText(df.format(today));
-//        mainOutputStartDate.setText(getDateStr(-1));
-//        mainOutputEndDate.setText(df.format(today));
         mainObjectType.setText("全部");
 
         mainInputStartDate.setOnClickListener(onClickListener);
         mainInputEndDate.setOnClickListener(onClickListener);
-//        mainOutputStartDate.setOnClickListener(onClickListener);
-//        mainOutputEndDate.setOnClickListener(onClickListener);
         mainObjectTypeLayout.setOnClickListener(onClickListener);
         mainObjectSearchSend.setOnClickListener(onClickListener);
         mainAddObject.setOnClickListener(onClickListener);
@@ -219,26 +213,6 @@ public class MainFragment extends AbsBaseFragment {
                         }
                     });
                     break;
-//                case R.id.main_output_start_date:
-//                    CalendarPopupWindow mainOutputStartDateCalendar =
-//                            new CalendarPopupWindow(getActivity(), R.id.main_activity, "出库开始日期", mainOutputStartDate.getText().toString());
-//                    mainOutputStartDateCalendar.setOnCalendarPopClickListener(new CalendarPopupWindow.OnCalendarPopClickListener() {
-//                        @Override
-//                        public void onOk(String date) {
-//                            mainOutputStartDate.setText(date);
-//                        }
-//                    });
-//                    break;
-//                case R.id.main_output_end_date:
-//                    CalendarPopupWindow mainOutputEndDateCalendar =
-//                            new CalendarPopupWindow(getActivity(), R.id.main_activity, "出库结束日期", mainOutputEndDate.getText().toString());
-//                    mainOutputEndDateCalendar.setOnCalendarPopClickListener(new CalendarPopupWindow.OnCalendarPopClickListener() {
-//                        @Override
-//                        public void onOk(String date) {
-//                            mainOutputEndDate.setText(date);
-//                        }
-//                    });
-//                    break;
                 case R.id.main_object_type_layout:
                     SelectListPopupWindow selectListPopupWindow =
                             new SelectListPopupWindow(getActivity(), R.id.main_activity, "选择物品类型", mTypes, mainObjectType.getText().toString());
@@ -271,36 +245,20 @@ public class MainFragment extends AbsBaseFragment {
                     } else {
                         ToastUtil.showShort(mContext, "请填入正确的查询时间");
                     }
-//                    queryThread();
                     break;
                 case R.id.main_add_object:
-                    startActivity(new Intent(AppContext.getInstance(), AddObjectActivity.class));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        startActivity(new Intent(AppContext.getInstance(), AddObjectActivity.class),
+                                ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+                    } else {
+                        startActivity(new Intent(AppContext.getInstance(), AddObjectActivity.class));
+                        getActivity().overridePendingTransition(R.anim.open_enter,R.anim.open_exit);
+                    }
                     break;
             }
         }
     };
 
-//    private void queryThread() {
-//        mLoadingDialog.show();
-//        final QueryBuilder<MyObject> qb = mMyObjectDao.queryBuilder();
-//        new Thread(){
-//            @Override
-//            public void run() {
-//                if ("全部".equals(mainObjectType.getText().toString())){
-//                    qb.where(qb.and(MyObjectDao.Properties.InputDate.ge(mainInputStartDate.getText().toString())
-//                            ,MyObjectDao.Properties.InputDate.le(mainInputEndDate.getText().toString())));
-//                } else {
-//                    qb.where(MyObjectDao.Properties.ObjectType.eq(mainObjectType.getText().toString()),
-//                            qb.and(MyObjectDao.Properties.InputDate.ge(mainInputStartDate.getText().toString())
-//                                    ,MyObjectDao.Properties.InputDate.le(mainInputEndDate.getText().toString())));
-//                }
-//                mObjects.clear();
-//                mObjects = qb.list();
-//                mMainObjectListAdapter.notifyDataSetChanged();
-//                mLoadingDialog.close();
-//            }
-//        }.start();
-//    }
 
     private boolean isCanSearch(String begin,String end){
         boolean result = false;

@@ -1,10 +1,14 @@
 package com.example.yjlove.objectmanager.ui.activity;
 
 import android.content.Context;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -17,10 +21,11 @@ import com.example.yjlove.objectmanager.R;
 import com.example.yjlove.objectmanager.base.AbsBaseFragment;
 import com.example.yjlove.objectmanager.base.BaseActivity;
 import com.example.yjlove.objectmanager.bean.model.NavigateModel;
+import com.example.yjlove.objectmanager.ui.fragment.CountFragment;
 import com.example.yjlove.objectmanager.ui.fragment.MainFragment;
 import com.example.yjlove.objectmanager.ui.fragment.MeFragment;
 import com.example.yjlove.objectmanager.ui.fragment.MessageFragment;
-import com.example.yjlove.objectmanager.ui.fragment.CountFragment;
+import com.example.yjlove.objectmanager.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +39,12 @@ public class MainActivity extends BaseActivity {
     FrameLayout activityMainContainer;
     @BindView(R.id.activity_main_bottom_bar)
     LinearLayout activityMainBottomBar;
+    @BindView(R.id.activity_main_show_me)
+    ImageView activityMainShowMe;
+    @BindView(R.id.activity_main_navigation)
+    NavigationView activityMainNavigation;
+    @BindView(R.id.activity_main_drawer)
+    DrawerLayout activityMainDrawer;
 
     private long mExitTime = 0;
     protected LayoutInflater mInflater;
@@ -52,10 +63,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        mNavigateModels.add(new NavigateModel("物品", R.drawable.bottombar_object_selector,NavigateModel.OBJECT_TAG));
-        mNavigateModels.add(new NavigateModel("统计", R.drawable.bottombar_count_selector,NavigateModel.COUNT_TAG));
-        mNavigateModels.add(new NavigateModel("消息", R.drawable.bottombar_message_selector,NavigateModel.MESSAGE_TAG));
-        mNavigateModels.add(new NavigateModel("我的", R.drawable.bottombar_me_selector,NavigateModel.PERSON_TAG));
+        mNavigateModels.add(new NavigateModel("物品", R.drawable.bottombar_object_selector, NavigateModel.OBJECT_TAG));
+        mNavigateModels.add(new NavigateModel("统计", R.drawable.bottombar_count_selector, NavigateModel.COUNT_TAG));
+        mNavigateModels.add(new NavigateModel("消息", R.drawable.bottombar_message_selector, NavigateModel.MESSAGE_TAG));
+        mNavigateModels.add(new NavigateModel("我的", R.drawable.bottombar_me_selector, NavigateModel.PERSON_TAG));
 
         mInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         for (NavigateModel navigateModel : mNavigateModels) {
@@ -68,17 +79,41 @@ public class MainActivity extends BaseActivity {
             holder.mTitleText.setText(navigateModel.getTitle());
             button.setTag(navigateModel.getTag());
             button.setOnClickListener(mBottomBarClickListener);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT, 1);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1);
             button.setLayoutParams(params);
             activityMainBottomBar.addView(button);
         }
         switchPress(NavigateModel.OBJECT_TAG);
         showHomeFragment();
+
+        activityMainShowMe.setOnClickListener(onClickListener);
+
+        activityMainNavigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                menuItem.setChecked(true);
+                // 关闭
+                activityMainDrawer.closeDrawers();
+                ToastUtil.showShort(mContext, menuItem.getTitle());
+                return true;
+            }
+        });
+
     }
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.activity_main_show_me:
+                    activityMainDrawer.openDrawer(GravityCompat.START);
+                    break;
+            }
+        }
+    };
 
     /**
      * 保存导航按钮按钮视图和文本视图的容器
-     *
      */
     private final class ViewHolder {
         public ImageView mIcon;
