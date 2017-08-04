@@ -2,15 +2,13 @@ package com.example.yjlove.objectmanager.ui.fragment;
 
 import android.os.Bundle;
 import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yjlove.objectmanager.R;
+import com.example.yjlove.objectmanager.adaptor.CountTabAdapter;
 import com.example.yjlove.objectmanager.base.AbsBaseFragment;
 import com.example.yjlove.objectmanager.base.BaseFragment;
 import com.example.yjlove.objectmanager.utils.DBUtil;
@@ -68,44 +66,10 @@ public class CountFragment extends AbsBaseFragment {
             pagers[i] = new CountItemFragment();
         }
 
-        TabAdapter adapter = new TabAdapter(getChildFragmentManager());
+        CountTabAdapter adapter = new CountTabAdapter(title, pagers, getChildFragmentManager());
         countViewpager.setAdapter(adapter);
         countIndicator.setViewPager(countViewpager);
         countIndicator.setVisibility(View.VISIBLE);
-    }
-    /**
-     * 适配器代码
-     */
-    class TabAdapter extends FragmentPagerAdapter {
-
-
-        public TabAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            Fragment fragment = pagers[position];
-            Bundle args = new Bundle();
-            args.putString("title",title[position]);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public int getCount() {
-            return title.length;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            //super.destroyItem(container, position, object);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return title[position];
-        }
     }
 
     @Override

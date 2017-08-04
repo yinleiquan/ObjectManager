@@ -16,12 +16,12 @@
         "source": "D:\\work\\Android\\AndroidProject\\ObjectManager\\library\\ViewPagerIndicator\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
-        "merged": "D:\\work\\Android\\AndroidProject\\ObjectManager\\library\\ViewPagerIndicator\\build\\intermediates\\res\\merged\\release\\drawable\\abc_cab_background_top_material.xml",
-        "source": "D:\\work\\Android\\AndroidProject\\ObjectManager\\library\\ViewPagerIndicator\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_cab_background_top_material.xml"
-    },
-    {
         "merged": "D:\\work\\Android\\AndroidProject\\ObjectManager\\library\\ViewPagerIndicator\\build\\intermediates\\res\\merged\\release\\drawable\\vpi__tab_indicator.xml",
         "source": "D:\\work\\Android\\AndroidProject\\ObjectManager\\library\\ViewPagerIndicator\\src\\main\\res\\drawable\\vpi__tab_indicator.xml"
+    },
+    {
+        "merged": "D:\\work\\Android\\AndroidProject\\ObjectManager\\library\\ViewPagerIndicator\\build\\intermediates\\res\\merged\\release\\drawable\\abc_cab_background_top_material.xml",
+        "source": "D:\\work\\Android\\AndroidProject\\ObjectManager\\library\\ViewPagerIndicator\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
         "merged": "D:\\work\\Android\\AndroidProject\\ObjectManager\\library\\ViewPagerIndicator\\build\\intermediates\\res\\merged\\release\\drawable\\abc_edit_text_material.xml",
