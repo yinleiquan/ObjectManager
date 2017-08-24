@@ -1,12 +1,14 @@
 package com.example.yjlove.objectmanager.ui.fragment;
 
-import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.yjlove.objectmanager.R;
 import com.example.yjlove.objectmanager.base.AbsBaseFragment;
@@ -22,9 +24,11 @@ import butterknife.Unbinder;
 public class MeFragment extends AbsBaseFragment {
 
     protected LayoutInflater mInflater;
-    @BindView(R.id.me_user_name)
-    TextView meUserName;
     Unbinder unbinder;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.collapsing_toolbar_layout)
+    CollapsingToolbarLayout collapsingToolbarLayout;
 
     @Override
     public void handleMessage(Message msg) {
@@ -45,9 +49,11 @@ public class MeFragment extends AbsBaseFragment {
     }
 
     private void init() {
-//        meUserName.setText();
-        SharedPreferences sharedPreferences = mContext.getSharedPreferences("Cookies_Prefs", 0);
-//        sharedPreferences.getString()
+        collapsingToolbarLayout.setTitle("个人中心");
+        collapsingToolbarLayout.setCollapsedTitleGravity(Gravity.CENTER);
+        collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedTitleTheme);
+//        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+        collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
     }
 
     @Override

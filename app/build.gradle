@@ -34,7 +34,7 @@ greendao {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:appcompat-v7:23.+'
     compile 'com.jakewharton:butterknife:8.2.1'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
     compile 'com.google.code.gson:gson:2.8.1'
@@ -49,4 +49,5 @@ dependencies {
     compile project(':library:PushSDK')
     compile project(':library:ViewPagerIndicator')
     compile 'com.android.support:design:23.+'
+    compile 'com.android.support:cardview-v7:23.+'
 }
